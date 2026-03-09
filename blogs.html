@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Blog | Skin 911</title>
+    <link rel="stylesheet" href="blogs.css">
+</head>
+<body>
+
+    <header>
+        <div class="logo">
+           <img src="log0.jpg" alt="Site logo" width="120" height="100">   
+        </div>
+        <nav>
+            <ul>
+            <li><a href="home.html"><h6>Home</h6></a></li>
+            <li><a href="services.html"><h6>Services</h6></a></li>
+            <li><a href="Careers.html"><h6>Careers</h6></a></li>
+            <li><a href="products.html"><h6>Products</h6></a></li>
+            <li><a href="blogs.html"><h6>Blog</h6></a></li>
+            <li><a href="about.html"><h6>Locations</h6></a></li>
+            <li><a href="membership.html"><h6>Membership</h6></a></li>
+            </ul>
+        </nav>
+        <button class="book-btn" onclick="window.location.href='booking.html'">Book Now</button>
+    </header>
+
+    <main class="blog-container">
+
+        <section class="careers-hero" style="background-image: linear-gradient(rgba(61, 43, 31, 0.6), rgba(61, 43, 31, 0.6)), url('blogs background.jpeg'); height: 350px; background-size: cover; background-position: center; display: flex; justify-content: center; align-items: center; color: white; text-align: center; border-bottom: 3px solid #c5a059;">
+            <div>
+                <h1 style="font-size: 3.5rem; text-transform: uppercase; margin: 0;">our blogs</h1>
+                <p style="font-size: 1.2rem; letter-spacing: 2px;">Tips, Trends, and Spa Stories</p>
+            </div>
+        </section>
+
+        <section class="blog-grid">
+            <article class="blog-card">
+                <img src="fillerblogs.jpeg" alt="Facial treatment at Hopkins">
+                <div class="blog-content">
+                    <h3>Skin 911 Services - Hopkins Location</h3>
+                    <p class="blog-excerpt">A luxury spa experience does not have to be expensive. At Skin 911 Spas, we treat everyone like royalty. The ambiance is unforgettable and amazing.</p>
+                    <p class="blog-full-content hidden">A luxury spa experience does not have to be expensive. At Skin 911 Day Spa, we believe everyone deserves to feel pampered, valued, and cared for, without breaking the bank. Located in the heart of Belize, our spa is a sanctuary designed to help you relax, rejuvenate, and restore balance to your body and mind.
+
+                      From the moment you walk through our doors, you are treated like royalty. Our professional team is dedicated to delivering personalized services that meet your individual needs, ensuring every visit is both memorable and meaningful. Whether you’re seeking relaxation, skin rejuvenation, or a moment of escape from everyday stress, Skin 911 is here for you.
+
+                      Our ambiance is truly unforgettable. With a calming atmosphere, elegant design, and soothing energy, Skin 911 offers an amazing spa environment where comfort and tranquility come together. Every detail is carefully curated to enhance your experience and leave you feeling refreshed and renewed.
+
+                      At Skin 911 Day Spa, luxury is not defined by price, it’s defined by how you feel when you leave. Experience exceptional care, remarkable ambiance, and royal treatment right here in Belize.</p>
+                    <button class="read-more" onclick="toggleContent(this)">Read Full Post →</button>
+                </div>
+            </article>
+
+            <article class="blog-card">
+                <img src="filler blogs.jpeg" alt="Spa Packages">
+                <div class="blog-content">
+                    <h3>The Point Spa Packages</h3>
+                    <p class="blog-excerpt">You deserve a spa day! When life catches up with you and you need a day to yourself to unwind and relax, visit Skin 911 for our signature packages.</p>
+                    <p class="blog-full-content hidden">So, you’re thinking of treating yourself to a relaxing spa visit for the day? When life starts to catch up with you and the stress of everyday responsibilities becomes overwhelming, it’s time to pause and focus on yourself.
+
+At Skin 911 Day Spa, we invite you to escape the rush and enjoy a well-deserved moment of peace. Whether you’re looking to unwind, recharge, or simply enjoy some quiet time, our spa offers the perfect environment to relax and reset.
+
+From soothing treatments to a calm and welcoming atmosphere, Skin 911 is your go-to destination in Belize for self-care and relaxation. Step away from the noise, breathe deeply, and let us help you feel refreshed, renewed, and ready to take on life again.
+
+Your day of relaxation starts here visit Skin 911 and give yourself the care you deserve.</p>
+                    <button class="read-more" onclick="toggleContent(this)">Read Full Post →</button>
+                </div>
+            </article>
+        </section>
+    </main>
+
+   <footer>
+            <div class="footer-container">
+
+                <div class="footer-column">
+                    <h3>Sign up for texts & emails</h3>
+                    <form class="footer-email-form">
+                        <input type="email" placeholder="Email" required />
+                        <button type="submit" aria-label="Subscribe">→</button>
+                    </form>
+                    <div class="footer-social">
+                        <a href="https://www.instagram.com/skin911._?igsh=a3pnamYya2lzdG5n" target="_blank" aria-label="Instagram"><img src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSI0MCIgaGVpZ2h0PSI0MCIgdmlld0JveD0iMCAwIDQwIDQwIj48Y2lyY2xlIGN4PSIyMCIgY3k9IjIwIiByPSIxOCIgZmlsbD0ibm9uZSIgc3Ryb2tlPSJ3aGl0ZSIgc3Ryb2tlLXdpZHRoPSIyIi8+PGNpcmNsZSBjeD0iMjAiIGN5PSIyMCIgcj0iMTIiIGZpbGw9Im5vbmUiIHN0cm9rZT0id2hpdGUiIHN0cm9rZS13aWR0aD0iMiIvPjxjaXJjbGUgY3g9IjIwIiBjeT0iMjAiIHI9IjYiIGZpbGw9Im5vbmUiIHN0cm9rZT0id2hpdGUiIHN0cm9rZS13aWR0aD0iMiIvPjxjaXJjbGUgY3g9IjI4IiBjeT0iMTIiIHI9IjEuNSIgZmlsbD0id2hpdGUiLz48L3N2Zz4=" alt="Instagram" width="40" height="40" /></a>
+                    </div>
+                </div>
+
+
+                <div class="footer-column">
+                    <h3>INFO</h3>
+                    <ul>
+                        <li><a href="services.html">Services</a></li>
+                        <li><a href="about.html">Locations</a></li>
+                        <li><a href="Careers.html">Careers</a></li>
+                    </ul>
+                </div>
+
+
+                <div class="footer-column">
+                    <h3>OUR HOURS</h3>
+                    <ul class="hours-list">
+                        <li><strong>Sunday:</strong> 10 AM - 6 PM</li>
+                        <li><strong>Monday:</strong> 10 AM - 6 PM</li>
+                        <li><strong>Tuesday:</strong> 10 AM - 6 PM</li>
+                        <li><strong>Wednesday:</strong> 9 AM - 8 PM</li>
+                        <li><strong>Thursday:</strong> 9 AM - 8 PM</li>
+                        <li><strong>Friday:</strong> 9 AM - 8 PM</li>
+                        <li><strong>Saturday:</strong> 9 AM - 6 PM</li>
+                    </ul>
+                </div>
+
+                
+                <div class="footer-column">
+                    <h3>Our Location</h3>
+                     <ul class="location-list">
+                        <li>Orange Walk: <span class="location-number">(501) 610-0000</span></li>
+                        <li>The Point, Placencia: <span class="location-number">(501) 610-1111</span></li>
+                        <li>North End, Hopkins: <span class="location-number">(501) 610-2222</span></li>
+                    </ul>
+                </div>
+            </div>
+
+           
+            <div class="footer-bottom">
+                <p>&copy; 2024 Skin 911. All rights reserved.</p>
+            </div>
+        </footer> 
+
+    <script>
+        function toggleContent(button) {
+            const blogContent = button.parentElement;
+            const fullContent = blogContent.querySelector('.blog-full-content');
+            
+            fullContent.classList.toggle('hidden');
+            
+            if (fullContent.classList.contains('hidden')) {
+                button.textContent = 'Read Full Post →';
+            } else {
+                button.textContent = '← Show Less';
+            }
+        }
+    </script>
+</body>
+</html></body>
+</html>

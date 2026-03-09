@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title> Login | Garden City High School</title>
+    <link rel="stylesheet" href="global.css">
+    <link rel="stylesheet" href="login.css">
+</head>
+<body>
+
+    <header>
+        <div class="header-container">
+            <a href="index.html" class="logo-link">
+                <div class="logo-area">
+                    <img src="logo.png" alt="GCHS Logo" class="logo">
+                    <div class="title-text">
+                        <h1>JDZS Garden City High School</h1>
+                        <p class="slogan">"Nurturing Minds, Growing Futures & Communities"</p>
+                    </div>
+                </div>
+            </a>
+            <nav>
+                <ul>
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="about.html">About</a></li>
+                    <li><a href="academics.html">Academics</a></li>
+                    <li><a href="admissions.html">Admission</a></li>
+                    <li><a href="financing.html">Financing</a></li>
+                    <li><a href="student-life.html">Student Life</a></li>
+                    <li><a href="faculty.html">Faculty</a></li>
+                    <li><a href="signup.html" class="active">Log In</a></li>
+                </ul>
+                <img src="mascot image.jpeg" alt="GCHS Mascot" class="mascot">
+            </nav>
+        </div>
+    </header>
+
+        <section class="about-hero">
+            <h2 class="animate-pop">Announcements & Bulletin Board</h2>
+            <p>Stay up to date with the latest notices, events and student bulletins.</p>
+        </section>
+
+        <hr class="garden-divider">
+
+        <section class="bulletin-container">
+            <div class="bulletin-left">
+                <h3>Post an Announcement</h3>
+                <form id="postForm" class="post-form">
+                    <label for="ann-title">Title</label>
+                    <input type="text" id="ann-title" name="title" placeholder="Announcement title" required>
+
+                    <label for="ann-date">Date</label>
+                    <input type="date" id="ann-date" name="date">
+
+                    <label for="ann-message">Message</label>
+                    <textarea id="ann-message" name="message" rows="5" placeholder="Write your announcement here..." required></textarea>
+
+                    <button type="submit" class="btn-primary">Post Announcement</button>
+                    <button type="button" id="clearAll" class="btn-secondary">Clear All</button>
+                </form>
+            </div>
+
+            <div class="bulletin-right">
+                <h3>Latest Announcements</h3>
+                <div id="announcements" class="announcements-list">
+
+                </div>
+            </div>
+        </section>
+
+        <script>
+            (function(){
+                const storageKey = 'gch_announcements_v1';
+                const listEl = document.getElementById('announcements');
+                const form = document.getElementById('postForm');
+                const clearBtn = document.getElementById('clearAll');
+
+                function load() {
+                    try {
+                        return JSON.parse(localStorage.getItem(storageKey)) || [];
+                    } catch (e) { return []; }
+                }
+
+                function save(items) {
+                    localStorage.setItem(storageKey, JSON.stringify(items));
+                }
+
+                function render() {
+                    const items = load();
+                    if (!listEl) return;
+                    listEl.innerHTML = '';
+                    if (items.length === 0) {
+                        listEl.innerHTML = '<p class="muted">No announcements yet.</p>';
+                        return;
+                    }
+                    items.slice().reverse().forEach((it, idx) => {
+                        const card = document.createElement('article');
+                        card.className = 'announcement-card';
+                        const date = it.date ? '<time>' + it.date + '</time>' : '';
+                        card.innerHTML = '<h4>' + escapeHtml(it.title) + '</h4>' + date + '<p>' + escapeHtml(it.message) + '</p>';
+                        listEl.appendChild(card);
+                    });
+                }
+
+                function escapeHtml(s) {
+                    return String(s).replace(/[&<>"']/g, function(c){
+                        return {'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":"&#39;"}[c];
+                    });
+                }
+
+                if (form) {
+                    form.addEventListener('submit', function(e){
+                        e.preventDefault();
+                        const title = document.getElementById('ann-title').value.trim();
+                        const date = document.getElementById('ann-date').value;
+                        const message = document.getElementById('ann-message').value.trim();
+                        if (!title || !message) return;
+                        const items = load();
+                        items.push({ title: title, date: date, message: message, created: Date.now() });
+                        save(items);
+                        form.reset();
+                        render();
+                    });
+                }
+
+                if (clearBtn) {
+                    clearBtn.addEventListener('click', function(){
+                        if (!confirm('Clear all announcements?')) return;
+                        localStorage.removeItem(storageKey);
+                        render();
+                    });
+                }
+
+                (function ensureSample(){
+                    const items = load();
+                    if (items.length === 0) {
+                        items.push({ title: 'Welcome Back!', date: '', message: 'Welcome to the Garden City student announcements board. Check here daily for updates.', created: Date.now() });
+                        items.push({ title: 'Science Fair', date: '2026-02-17', message: 'Join us for the annual Science Fair in the auditorium, 3:00 PM - 5:00 PM.', created: Date.now() });
+                        save(items);
+                    }
+                })();
+
+                render();
+            })();
+        </script>
+
+    <footer>
+        <div class="footer-content">
+            <div class="footer-contact">
+                <p><strong>Garden City High School</strong></p>
+                <p>#586 George Price Boulevard, Belmopan, Belize</p>
+                <p>Telephone:(501) 222-4567</p>
+                <p><em>"Nurturing Minds, Growing Futures & Communities"</em></p>
+            </div>
+            <div class="footer-links">
+                <h4>Important Links</h4>
+               <ul>
+                    <li><a href="https://www.moecst.gov.bz" target="_blank">Belize Ministry of Education</a></li>
+                    <li><a href="mailto:gardencityhighschool@gmail.com">Email Administrative Secretary</a></li>
+                    <li><a href="students%20FILLABLE%20FORM.docx" download="STUDENTS FILLABLE FORM.docx">Registration Form</a></li>
+                </ul>
+            </div>
+        </div>
+    </footer>
+</body>
+</html>
+
+   
+
